@@ -1,0 +1,667 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+
+  <title>Luxury Massage & Wellness</title>
+
+  <!-- Google Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@400;600;700&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
+
+  <style>
+
+    *{
+      margin:0;
+      padding:0;
+      box-sizing:border-box;
+      scroll-behavior:smooth;
+    }
+
+    body{
+      background:#0f0f0f;
+      color:white;
+      line-height:1.6;
+      font-family:'Inter', sans-serif;
+      overflow-x:hidden;
+    }
+
+    /* NAVBAR */
+
+    nav{
+      position:fixed;
+      top:0;
+      width:100%;
+      padding:20px 50px;
+      display:flex;
+      justify-content:space-between;
+      align-items:center;
+      background:rgba(0,0,0,.55);
+      backdrop-filter:blur(12px);
+      z-index:1000;
+      border-bottom:1px solid rgba(255,215,0,.15);
+    }
+
+    nav h1{
+      color:gold;
+      font-size:34px;
+      letter-spacing:2px;
+      font-family:'Cormorant Garamond', serif;
+    }
+
+    nav ul{
+      display:flex;
+      list-style:none;
+      gap:25px;
+    }
+
+    nav a{
+      text-decoration:none;
+      color:white;
+      transition:.3s;
+      font-weight:500;
+    }
+
+    nav a:hover{
+      color:gold;
+    }
+
+    /* HERO */
+
+    header{
+      height:100vh;
+      background:
+      linear-gradient(rgba(0,0,0,.68), rgba(0,0,0,.68)),
+      url('https://images.unsplash.com/photo-1519823551278-64ac92734fb1?q=80&w=1600&auto=format&fit=crop');
+
+      background-size:cover;
+      background-position:center;
+
+      display:flex;
+      justify-content:center;
+      align-items:center;
+      text-align:center;
+      padding:20px;
+    }
+
+    .hero{
+      animation:fadeIn 1.5s ease;
+    }
+
+    .hero h2{
+      font-size:72px;
+      color:gold;
+      margin-bottom:20px;
+      font-family:'Cormorant Garamond', serif;
+    }
+
+    .hero p{
+      max-width:750px;
+      margin:auto;
+      font-size:21px;
+      margin-bottom:35px;
+      color:#ddd;
+    }
+
+    .btn{
+      display:inline-block;
+      padding:15px 38px;
+      background:gold;
+      color:black;
+      text-decoration:none;
+      font-weight:bold;
+      border-radius:40px;
+      transition:.35s;
+      box-shadow:0 0 20px rgba(255,215,0,.3);
+    }
+
+    .btn:hover{
+      transform:translateY(-4px) scale(1.03);
+      background:white;
+    }
+
+    /* SECTION */
+
+    section{
+      padding:100px 10%;
+    }
+
+    .section-title{
+      text-align:center;
+      margin-bottom:60px;
+    }
+
+    .section-title h3{
+      font-size:50px;
+      color:gold;
+      margin-bottom:10px;
+      font-family:'Cormorant Garamond', serif;
+    }
+
+    .section-title p{
+      color:#bbb;
+    }
+
+    /* SERVICES */
+
+    .services{
+      display:grid;
+      grid-template-columns:repeat(auto-fit,minmax(260px,1fr));
+      gap:30px;
+    }
+
+    .card{
+      background:#1a1a1a;
+      padding:40px 30px;
+      border-radius:22px;
+      transition:.35s;
+      border:1px solid rgba(255,215,0,.15);
+      position:relative;
+      overflow:hidden;
+    }
+
+    .card::before{
+      content:'';
+      position:absolute;
+      width:100%;
+      height:4px;
+      background:gold;
+      top:0;
+      left:0;
+      transform:scaleX(0);
+      transition:.35s;
+    }
+
+    .card:hover::before{
+      transform:scaleX(1);
+    }
+
+    .card:hover{
+      transform:translateY(-8px);
+      border-color:gold;
+      box-shadow:0 0 30px rgba(255,215,0,.1);
+    }
+
+    .card h4{
+      color:gold;
+      margin-bottom:15px;
+      font-size:28px;
+      font-family:'Cormorant Garamond', serif;
+    }
+
+    .price{
+      margin-top:20px;
+      font-size:24px;
+      color:white;
+      font-weight:bold;
+    }
+
+    /* ABOUT */
+
+    .about{
+      display:grid;
+      grid-template-columns:1fr 1fr;
+      gap:60px;
+      align-items:center;
+    }
+
+    .about img{
+      width:100%;
+      border-radius:25px;
+      box-shadow:0 0 30px rgba(255,215,0,.15);
+    }
+
+    .about-text h3{
+      font-size:48px;
+      color:gold;
+      margin-bottom:20px;
+      font-family:'Cormorant Garamond', serif;
+    }
+
+    .about-text p{
+      color:#ccc;
+      margin-bottom:18px;
+    }
+
+    /* TESTIMONIALS */
+
+    .testimonials{
+      background:#141414;
+    }
+
+    .testimonial-grid{
+      display:grid;
+      grid-template-columns:repeat(auto-fit,minmax(260px,1fr));
+      gap:30px;
+    }
+
+    .testimonial{
+      background:#1d1d1d;
+      padding:30px;
+      border-radius:20px;
+      border:1px solid rgba(255,215,0,.15);
+    }
+
+    .testimonial h4{
+      color:gold;
+      margin-bottom:10px;
+    }
+
+    .stars{
+      color:gold;
+      margin-bottom:15px;
+    }
+
+    /* BOOKING */
+
+    .booking{
+      text-align:center;
+      background:#101010;
+      border-top:1px solid rgba(255,215,0,.15);
+      border-bottom:1px solid rgba(255,215,0,.15);
+    }
+
+    form{
+      max-width:650px;
+      margin:auto;
+      display:flex;
+      flex-direction:column;
+      gap:20px;
+    }
+
+    input,
+    textarea{
+      padding:17px;
+      border:none;
+      border-radius:12px;
+      background:#1d1d1d;
+      color:white;
+      font-size:16px;
+      outline:none;
+    }
+
+    textarea{
+      resize:none;
+      height:150px;
+    }
+
+    button{
+      padding:16px;
+      border:none;
+      border-radius:40px;
+      background:gold;
+      color:black;
+      font-weight:bold;
+      cursor:pointer;
+      font-size:17px;
+      transition:.3s;
+    }
+
+    button:hover{
+      background:white;
+      transform:translateY(-3px);
+    }
+
+    /* FAKE STATUS */
+
+    .status{
+      position:fixed;
+      bottom:20px;
+      right:20px;
+      background:#181818;
+      padding:15px 22px;
+      border-radius:50px;
+      border:1px solid rgba(255,215,0,.2);
+      display:flex;
+      align-items:center;
+      gap:10px;
+      z-index:999;
+      box-shadow:0 0 20px rgba(0,0,0,.4);
+    }
+
+    .dot{
+      width:12px;
+      height:12px;
+      background:#00ff66;
+      border-radius:50%;
+      animation:pulse 1.5s infinite;
+    }
+
+    /* FOOTER */
+
+    footer{
+      text-align:center;
+      padding:35px;
+      background:black;
+      color:#888;
+    }
+
+    /* ANIMATIONS */
+
+    @keyframes fadeIn{
+      from{
+        opacity:0;
+        transform:translateY(30px);
+      }
+
+      to{
+        opacity:1;
+        transform:translateY(0);
+      }
+    }
+
+    @keyframes pulse{
+      0%{
+        transform:scale(1);
+        opacity:1;
+      }
+
+      50%{
+        transform:scale(1.3);
+        opacity:.5;
+      }
+
+      100%{
+        transform:scale(1);
+        opacity:1;
+      }
+    }
+
+    /* MOBILE */
+
+    @media(max-width:900px){
+
+      nav{
+        padding:18px 20px;
+      }
+
+      nav ul{
+        gap:15px;
+      }
+
+      .hero h2{
+        font-size:48px;
+      }
+
+      .hero p{
+        font-size:18px;
+      }
+
+      .about{
+        grid-template-columns:1fr;
+      }
+
+      .section-title h3{
+        font-size:40px;
+      }
+
+    }
+
+  </style>
+</head>
+
+<body>
+
+  <!-- NAVBAR -->
+
+  <nav>
+
+    <h1>Luxury Massage</h1>
+
+    <ul>
+      <li><a href="#services">Services</a></li>
+      <li><a href="#about">About</a></li>
+      <li><a href="#testimonials">Reviews</a></li>
+      <li><a href="#booking">Book</a></li>
+    </ul>
+
+  </nav>
+
+  <!-- HERO -->
+
+  <header>
+
+    <div class="hero">
+
+      <h2>Relax. Recover. Renew.</h2>
+
+      <p>
+        Experience premium massage therapy designed to relax the body,
+        reduce stress, and restore balance in a luxurious atmosphere.
+      </p>
+
+      <a href="#booking" class="btn">Book Appointment</a>
+
+    </div>
+
+  </header>
+
+  <!-- SERVICES -->
+
+  <section id="services">
+
+    <div class="section-title">
+
+      <h3>Our Services</h3>
+
+      <p>
+        Premium wellness experiences tailored to your needs.
+      </p>
+
+    </div>
+
+    <div class="services">
+
+      <div class="card">
+
+        <h4>Swedish Massage</h4>
+
+        <p>
+          Gentle relaxation massage designed to improve circulation
+          and reduce stress throughout the body.
+        </p>
+
+        <div class="price">$90 / 60 min</div>
+
+      </div>
+
+      <div class="card">
+
+        <h4>Deep Tissue</h4>
+
+        <p>
+          Focused therapeutic pressure targeting muscle tension,
+          soreness, and chronic stress points.
+        </p>
+
+        <div class="price">$120 / 60 min</div>
+
+      </div>
+
+      <div class="card">
+
+        <h4>Hot Stone Therapy</h4>
+
+        <p>
+          Warm stone therapy paired with massage techniques for
+          deep comfort and total relaxation.
+        </p>
+
+        <div class="price">$140 / 75 min</div>
+
+      </div>
+
+    </div>
+
+  </section>
+
+  <!-- ABOUT -->
+
+  <section id="about">
+
+    <div class="about">
+
+      <img src="https://images.unsplash.com/photo-1515377905703-c4788e51af15?q=80&w=1200&auto=format&fit=crop" alt="Massage Spa">
+
+      <div class="about-text">
+
+        <h3>About Our Studio</h3>
+
+        <p>
+          Our wellness studio creates a calming environment where
+          clients can relax, recharge, and focus on self-care.
+        </p>
+
+        <p>
+          Every session is tailored to help improve comfort,
+          relaxation, and overall wellness.
+        </p>
+
+        <p>
+          We combine luxury ambiance with professional massage
+          techniques for a premium experience.
+        </p>
+
+      </div>
+
+    </div>
+
+  </section>
+
+  <!-- TESTIMONIALS -->
+
+  <section class="testimonials" id="testimonials">
+
+    <div class="section-title">
+
+      <h3>Client Reviews</h3>
+
+      <p>
+        Trusted by clients seeking comfort and relaxation.
+      </p>
+
+    </div>
+
+    <div class="testimonial-grid">
+
+      <div class="testimonial">
+
+        <div class="stars">★★★★★</div>
+
+        <h4>Jessica M.</h4>
+
+        <p>
+          Absolutely relaxing atmosphere and professional service.
+          I felt refreshed after every session.
+        </p>
+
+      </div>
+
+      <div class="testimonial">
+
+        <div class="stars">★★★★★</div>
+
+        <h4>Daniel R.</h4>
+
+        <p>
+          One of the best massage experiences I've had.
+          Clean, calming, and very welcoming.
+        </p>
+
+      </div>
+
+      <div class="testimonial">
+
+        <div class="stars">★★★★★</div>
+
+        <h4>Sarah T.</h4>
+
+        <p>
+          The luxury environment and attention to detail
+          made the entire experience amazing.
+        </p>
+
+      </div>
+
+    </div>
+
+  </section>
+
+  <!-- BOOKING -->
+
+  <section class="booking" id="booking">
+
+    <div class="section-title">
+
+      <h3>Book An Appointment</h3>
+
+      <p>
+        Schedule your next wellness session today.
+      </p>
+
+    </div>
+
+    <form id="bookingForm">
+
+      <input type="text" placeholder="Full Name" required>
+
+      <input type="email" placeholder="Email Address" required>
+
+      <input type="tel" placeholder="Phone Number" required>
+
+      <textarea placeholder="Preferred massage type or notes"></textarea>
+
+      <button type="submit">Submit Booking Request</button>
+
+    </form>
+
+  </section>
+
+  <!-- FAKE ONLINE STATUS -->
+
+  <div class="status">
+
+    <div class="dot"></div>
+
+    <span>Now Accepting Appointments</span>
+
+  </div>
+
+  <!-- FOOTER -->
+
+  <footer>
+
+    <p>
+      © 2026 Luxury Massage & Wellness — Demo Website
+    </p>
+
+  </footer>
+
+  <!-- JAVASCRIPT -->
+
+  <script>
+
+    // FAKE BOOKING SUBMISSION
+
+    const bookingForm =
+    document.getElementById("bookingForm");
+
+    bookingForm.addEventListener("submit", function(e){
+
+      e.preventDefault();
+
+      alert(
+        "Thank you! Your booking request has been received."
+      );
+
+      bookingForm.reset();
+
+    });
+
+  </script>
+
+</body>
+</html>
